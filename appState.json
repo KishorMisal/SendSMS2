@@ -1,0 +1,126 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "81f3e64d-f0ad-4b30-b2aa-6241bef71379": {
+        "id": "81f3e64d-f0ad-4b30-b2aa-6241bef71379",
+        "parent": null,
+        "name": "SendSMS1",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "388e45a7-d53b-46c0-a6a0-d69d2a7ba54c"
+        ],
+        "isRemovable": false,
+        "filePath": "SendSMS1"
+      },
+      "388e45a7-d53b-46c0-a6a0-d69d2a7ba54c": {
+        "id": "388e45a7-d53b-46c0-a6a0-d69d2a7ba54c",
+        "parent": "81f3e64d-f0ad-4b30-b2aa-6241bef71379",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "SendSMS1/lambda.js",
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "apigusEast1SendSMSsendSmspost",
+            "config": {}
+          }
+        ],
+        "testCases": {
+          "e60004c0-2521-4f6e-ba72-0da7f863ba9b": {
+            "id": "e60004c0-2521-4f6e-ba72-0da7f863ba9b",
+            "name": "Test event1",
+            "functionId": "388e45a7-d53b-46c0-a6a0-d69d2a7ba54c",
+            "event": "{\r\n    \"receiver\": \"+918766820623\", \r\n    \"sender\": \"MySMS\", \r\n    \"message\": \"Hello from salesforce\"\r\n}",
+            "eventTemplate": "hello-world"
+          }
+        }
+      }
+    },
+    "rootNode": "81f3e64d-f0ad-4b30-b2aa-6241bef71379",
+    "openFiles": [
+      "388e45a7-d53b-46c0-a6a0-d69d2a7ba54c"
+    ],
+    "currentFileId": "388e45a7-d53b-46c0-a6a0-d69d2a7ba54c",
+    "resources": {
+      "apigusEast1SendSMSsendSmspost": {
+        "name": "apigusEast1SendSMSsendSmspost",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 0,
+          "apiName": "SendSMS",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "sendSms",
+          "resourcePath": "/sendSms",
+          "restMethod": "POST",
+          "proxyIntegration": false,
+          "enableCORS": true,
+          "stageMode": 0,
+          "stageName": "Test",
+          "mode": 0
+        }
+      },
+      "snsDirectSMSResource": {
+        "name": "snsDirectSMSResource",
+        "type": "SNS",
+        "config": {
+          "snsType": 1,
+          "numbers": [
+            "@{receiver}"
+          ]
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "SendSMS1",
+    "projectDescription": "Send and Receive",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {}
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "SendSMS2",
+      "url": "https://github.com/KishorMisal/SendSMS2"
+    }
+  }
+}
